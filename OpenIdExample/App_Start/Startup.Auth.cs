@@ -6,6 +6,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using OpenIdExample.Models;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OAuth;
+using Microsoft.Owin.Security.OpenIdConnect;
 
 namespace OpenIdExample
 {
@@ -63,6 +66,14 @@ namespace OpenIdExample
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+            app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+            app.UseCookieAuthentication(new CookieAuthenticationOptions());
+            app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
+            {
+                ClientId = "9763e671-9e5a-4873-b9b7-487bf61bef11",
+                Authority = "https://login.windows.net/hscopr.onmicrosoft.com",
+                PostLogoutRedirectUri = "http://openidexample-staging.azurewebsites.net/"
+            });
         }
     }
 }
