@@ -71,7 +71,7 @@ namespace OpenIdExample
             app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
             {
                 ClientId = "9763e671-9e5a-4873-b9b7-487bf61bef11",
-                Authority = "https://login.windows.net/hscopr.onmicrosoft.com",
+                Authority = "https://login.windows.net/HexAzureTraining.onmicrosoft.com",
                 PostLogoutRedirectUri = "http://openidexample-staging.azurewebsites.net/"
             });
         }
